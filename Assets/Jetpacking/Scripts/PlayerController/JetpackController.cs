@@ -6,6 +6,8 @@ using Valve.VR;
 public class JetpackController : MonoBehaviour {
 
     public float triggerPosition;
+    public Vector2 wheelPosition;
+    public float wheelRotation;
     public Transform thrusterTransform;
 
     SteamVR_TrackedObject trackedObject;
@@ -19,6 +21,8 @@ public class JetpackController : MonoBehaviour {
 	void Update () {
         var device = SteamVR_Controller.Input((int)trackedObject.index);
         triggerPosition = device.GetAxis(EVRButtonId.k_EButton_SteamVR_Trigger).x;
+        wheelPosition = device.GetAxis(EVRButtonId.k_EButton_SteamVR_Touchpad);
+        wheelRotation = Mathf.Atan2(wheelPosition.y, wheelPosition.x);
     }
 
     void OnDrawGizmos()
