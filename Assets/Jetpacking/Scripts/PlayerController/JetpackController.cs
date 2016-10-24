@@ -8,6 +8,7 @@ public class JetpackController : MonoBehaviour {
     public float triggerPosition;
     public Vector2 wheelPosition;
     public float wheelRotation;
+    public bool holdBomb;
     public Transform thrusterTransform;
 
     SteamVR_TrackedObject trackedObject;
@@ -23,6 +24,7 @@ public class JetpackController : MonoBehaviour {
         triggerPosition = device.GetAxis(EVRButtonId.k_EButton_SteamVR_Trigger).x;
         wheelPosition = device.GetAxis(EVRButtonId.k_EButton_SteamVR_Touchpad);
         wheelRotation = Mathf.Atan2(wheelPosition.y, wheelPosition.x);
+        holdBomb = device.GetPress(EVRButtonId.k_EButton_Grip);
     }
 
     void OnDrawGizmos()

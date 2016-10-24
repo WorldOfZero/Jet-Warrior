@@ -6,7 +6,6 @@ public class Thruster : MonoBehaviour {
 
     public JetpackController jetpackController;
     public float force = 10;
-
     private new Rigidbody rigidbody;
 
 	// Use this for initialization
