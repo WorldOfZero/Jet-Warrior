@@ -9,7 +9,9 @@ public class JetpackController : MonoBehaviour {
     public Vector2 wheelPosition;
     public float wheelRotation;
     public bool holdBomb;
+    public bool touchpadPress;
     public Transform thrusterTransform;
+    public Transform pointerTransform;
 
     SteamVR_TrackedObject trackedObject;
 
@@ -25,11 +27,17 @@ public class JetpackController : MonoBehaviour {
         wheelPosition = device.GetAxis(EVRButtonId.k_EButton_SteamVR_Touchpad);
         wheelRotation = Mathf.Atan2(wheelPosition.y, wheelPosition.x);
         holdBomb = device.GetPress(EVRButtonId.k_EButton_Grip);
+        touchpadPress = device.GetPress(EVRButtonId.k_EButton_SteamVR_Touchpad);
     }
 
     void OnDrawGizmos()
     {
         Gizmos.color = Color.green;
         Gizmos.DrawRay(thrusterTransform.position, thrusterTransform.up);
+        if (pointerTransform != null)
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawRay(pointerTransform.position, pointerTransform.up);
+        }
     }
 }

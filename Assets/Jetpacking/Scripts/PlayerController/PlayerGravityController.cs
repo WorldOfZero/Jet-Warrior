@@ -8,6 +8,7 @@ public class PlayerGravityController : MonoBehaviour {
     private new Rigidbody rigidbody;
     private IEnumerable<GravityEmitter> gravityEmitters;
 
+    public bool grounded = false;
     public GravityEmitter targetGravityEmitter;
     public Vector3 targetUpVector;
 
@@ -47,11 +48,13 @@ public class PlayerGravityController : MonoBehaviour {
 
     void OnCollisionEnter(Collision collider)
     {
+        grounded = true;
         this.transform.parent = collider.transform;
     }
 
     void OnCollisionExit(Collision collider)
     {
+        grounded = false;
         this.transform.parent = null;
     }
 }

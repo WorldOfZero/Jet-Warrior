@@ -18,6 +18,7 @@ public class DelayedFuse : MonoBehaviour {
 	        timer -= Time.deltaTime;
 	        if (timer < 0)
 	        {
+                SendMessage("OnExplosion");
                 Destroy(this.gameObject);
 	        }
 	    }
