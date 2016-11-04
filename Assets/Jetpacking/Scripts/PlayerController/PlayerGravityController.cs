@@ -41,7 +41,7 @@ public class PlayerGravityController : MonoBehaviour {
 	        if (Physics.Raycast(ray, out hit, float.MaxValue))
 	        {
                 targetUpVector = hit.normal;
-                rigidbody.AddForce(-targetUpVector * 9.8f * Time.deltaTime * rigidbody.mass);
+                rigidbody.AddForce(-targetUpVector * 9.8f * 5 * Time.deltaTime * rigidbody.mass);
 	        }
 	    }
 	}
