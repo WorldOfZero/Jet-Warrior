@@ -30,3 +30,5 @@ sysinfo.txt
 *.unitypackage
 /Assets/ProCore
 /Assets/SkyBox Volume 2
+/Assets/Jetpacking/Resources/Jets
+/Assets/Jetpacking/Resources/Weapons/Standard

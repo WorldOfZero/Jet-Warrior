@@ -22,6 +22,7 @@ public class ThrowingWeaponController : MonoBehaviour {
         {
             var go = GameObject.Instantiate(prefab);
             go.transform.position = attachPoint.transform.position;
+            go.transform.rotation = attachPoint.transform.rotation;
 
             joint = go.AddComponent<FixedJoint>();
             joint.connectedBody = attachPoint;
