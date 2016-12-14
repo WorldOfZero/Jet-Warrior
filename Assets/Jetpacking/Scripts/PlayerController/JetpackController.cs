@@ -10,8 +10,10 @@ public class JetpackController : MonoBehaviour {
     public float wheelRotation;
     public bool holdBomb;
     public bool touchpadPress;
+    public bool grappleHook;
     public Transform thrusterTransform;
     public Transform pointerTransform;
+    public Transform grappleHookOrigin;
 
     SteamVR_TrackedObject trackedObject;
 
@@ -28,6 +30,7 @@ public class JetpackController : MonoBehaviour {
         wheelRotation = Mathf.Atan2(wheelPosition.y, wheelPosition.x);
         holdBomb = device.GetPress(EVRButtonId.k_EButton_Grip);
         touchpadPress = device.GetPress(EVRButtonId.k_EButton_SteamVR_Touchpad);
+        grappleHook = device.GetPress(EVRButtonId.k_EButton_ApplicationMenu);
     }
 
     void OnDrawGizmos()
